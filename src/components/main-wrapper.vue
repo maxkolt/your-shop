@@ -30,7 +30,7 @@ export default {
 
 <style>
 .main-wrapper {
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
 }
 </style>

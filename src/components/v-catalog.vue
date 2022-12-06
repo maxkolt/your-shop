@@ -46,10 +46,12 @@ export default {
 </script>
 
 <style>
-.v-catalog .v-catalog-list {
+.v-catalog-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  grid-gap: 15px;
+
 }
 </style>
