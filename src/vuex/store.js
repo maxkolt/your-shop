@@ -14,12 +14,12 @@ let store = new Vuex.Store({
     }
   },
   actions: {
-    GET_PRODUCT_FROM_API({comit}) {
+    GET_PRODUCTS_FROM_API({commit}) {
       return axios('http://localhost:3000/products', {
         method: "GET"
       })
         .then((products) => {
-          comit('SET_PRODUCTS_TO_STATE', products.data)
+         commit('SET_PRODUCTS_TO_STATE', products.data)
           return products;
         })
         .catch((error) => {

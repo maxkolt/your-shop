@@ -33,14 +33,14 @@ export default {
   },
   methods: {
     ...mapActions([
-      'GET_PRODUCT_FROM_API'
+      'GET_PRODUCTS_FROM_API'
     ]),
     showChildArticleInConsole(data) {
       console.log(data)
     }
   },
   mounted() {
-    this.'GET_PRODUCT_FROM_API'()
+    this.GET_PRODUCTS_FROM_API()
   }
 }
 </script>
