@@ -46,7 +46,7 @@ export default {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 8px 0 #e0e0e0;
+  box-shadow: 0 0 10px 0 #86b5ce;
   padding: 16px;
   margin-bottom: 16px;
 }
