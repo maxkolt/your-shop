@@ -5,7 +5,7 @@
     <p class="catalog-item-price">Price: {{ product_data.price }}</p>
     <button
         class="catalog-item-add-cart btn"
-        @click="sendDataToParent">
+        @click="addToCart">
       Add to cart
     </button>
   </div>
@@ -27,8 +27,8 @@ export default {
   },
   computed: {},
   methods: {
-    sendDataToParent() {
-      this.$emit('sendArticle', this.product_data.article)
+    addToCart(){
+      this.$emit('addToCart', this.product_data)
     }
   }
 }
@@ -37,7 +37,7 @@ export default {
 <style>
 .catalog-item {
   flex-basis: 25%;
-  box-shadow: 0 0 10px 0#357f86;
+  box-shadow: 0 0 10px 0 #86b5ce;
   padding: 16px;
   margin-bottom: 16px;
 }
