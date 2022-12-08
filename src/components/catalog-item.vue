@@ -6,7 +6,7 @@
     <button
         class="catalog-item-add-cart btn"
         @click="addToCart">
-      Add to cart
+      Добавить в корзину
     </button>
   </div>
 </template>
