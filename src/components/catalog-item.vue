@@ -48,7 +48,7 @@ export default {
 
 .btn {
   padding: 10px;
-  background: #cabbb4;
+  background: #a7c9b3;
   color: #ffff;
   border: none;
   border-radius: 5px;

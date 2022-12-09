@@ -81,14 +81,11 @@ export default {
 
 <style>
 .cart-total {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 25px;
+  border-radius: 5px;
+  padding: 15px;
   display: flex;
   justify-content: center;
-  background: #2c3e50;
+  background: #2e445b;
   color: #ffff;
 }
 
