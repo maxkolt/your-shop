@@ -9,12 +9,12 @@
     <div class="cart-item-quantity">
       <p>Qty:</p>
       <span class="quantity-tools">
-        <span class="quantity-btn" @click="decrementItem">-</span>
+        <button class="quantity-btn" @click="decrementItem">-</button>
          {{ cart_item_data.quantity }}
-        <span class="quantity-btn" @click="incrementItem">+</span>
+        <button class="quantity-btn" @click="incrementItem">+</button>
       </span>
     </div>
-    <button class="btn" @click="deleteFromCart">Delete</button>
+    <button class="btn" @click="deleteFromCart">Удалить</button>
   </div>
 </template>
 

@@ -27,7 +27,7 @@ export default {
   },
   computed: {},
   methods: {
-    addToCart(){
+    addToCart() {
       this.$emit('addToCart', this.product_data)
     }
   }
@@ -44,5 +44,13 @@ export default {
 
 .catalog-item-image {
   width: 100px;
+}
+
+.btn {
+  padding: 10px;
+  background: #cabbb4;
+  color: #ffff;
+  border: none;
+  border-radius: 5px;
 }
 </style>
