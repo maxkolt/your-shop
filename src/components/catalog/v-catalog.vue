@@ -22,8 +22,8 @@
 
 <script>
 
-import catalogItem from "./catalog-item.vue";
-import {mapActions, mapGetters} from "vuex";
+import catalogItem from "./catalog-item.vue"
+import {mapActions, mapGetters} from "vuex"
 import vSelect from "../v-select.vue"
 
 
@@ -64,11 +64,11 @@ export default {
       'ADD_TO_CART'
     ]),
     sortByCategories(category) {
-      this.sortedProducts = []
-      let vm = this
+      this.sortedProducts = [];
+      let vm = this;
       this.PRODUCTS.map(function (item) {
         if (item.category === category.name) {
-          vm.sortedProducts.push(item)
+          vm.sortedProducts.push(item);
         }
       })
       this.selected = category.name

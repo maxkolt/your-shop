@@ -21,7 +21,7 @@ let router = new Router({
     //   path: '/product',
     //   name: 'product',
     //   component: vProductPage
-    // },
+    //  },
     {
       path: '/cart',
       name: 'cart',

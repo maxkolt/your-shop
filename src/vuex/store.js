@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import commonActions from "./actions/actions";
-import mutations from "@/vuex/mutations/mutations";
-import getters from "@/vuex/getters/getters";
-import apiRequests from "@/vuex/actions/api-requests";
+import mutations from "./mutations/mutations";
+import getters from "./getters/getters";
+import apiRequests from "./actions/api-requests";
 
 const actions = {...commonActions, ...apiRequests}
 
