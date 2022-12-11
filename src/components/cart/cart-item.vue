@@ -1,6 +1,6 @@
 <template>
   <div class="cart-item">
-    <img class="v-cart-item-image" :src=" require('../assets/images/' + cart_item_data.image)" alt="">
+    <img class="v-cart-item-image" :src=" require('../../assets/images/' + cart_item_data.image)" alt="">
     <div class="cart-item-info">
       <p>{{ cart_item_data.name }}</p>
       <p>{{ cart_item_data.price }}</p>
@@ -45,9 +45,6 @@ export default {
       this.$emit('deleteFromCart')
     }
   },
-  mounted() {
-    this.$set(this.cart_item_data, 'quantity', 1)
-  }
 }
 </script>
 
