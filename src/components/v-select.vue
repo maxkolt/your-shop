@@ -32,10 +32,6 @@ export default {
     selected: {
       type: String,
       default: ''
-    },
-    isExpanded: {
-      type: Boolean,
-      default: false
     }
   },
   data() {
