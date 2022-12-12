@@ -24,7 +24,7 @@
 
 import catalogItem from "./catalog-item.vue"
 import {mapActions, mapGetters} from "vuex"
-import vSelect from "../v-select.vue"
+import vSelect from "../v-select"
 
 
 export default {
@@ -38,10 +38,10 @@ export default {
     return {
       categories: [
         {name: 'Все', value: 'ALL'},
-        {name: 'Мужские', value: 'M'},
-        {name: 'Женские', value: 'V'}
+        {name: 'Мужские', value: 'М'},
+        {name: 'Женские', value: 'Ж'}
       ],
-      selected: 'Все',
+      selected: 'Все ⇓',
       sortedProducts: []
     }
   },
@@ -65,13 +65,12 @@ export default {
     ]),
     sortByCategories(category) {
       this.sortedProducts = [];
-      let vm = this;
-      this.PRODUCTS.map(function (item) {
+      this.PRODUCTS.map(item => {
         if (item.category === category.name) {
-          vm.sortedProducts.push(item);
+          this.sortedProducts.push(item)
         }
+        this.selected = category.name
       })
-      this.selected = category.name
     },
     addToCart(data) {
       this.ADD_TO_CART(data)
@@ -87,7 +86,7 @@ export default {
 .v-catalog-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   grid-gap: 15px;
 }

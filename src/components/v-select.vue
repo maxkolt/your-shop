@@ -3,7 +3,7 @@
     <p
         class="title"
         @click="areOptionsVisible = !areOptionsVisible"
-    >{{selected}}</p>
+    >{{ selected }}</p>
     <div
         class="options"
         v-if="areOptionsVisible"
@@ -13,7 +13,7 @@
           :key="option.value"
           @click="selectOption(option)"
       >
-        {{option.name}}
+        {{ option.name }}
       </p>
     </div>
   </div>
@@ -47,17 +47,7 @@ export default {
     selectOption(option) {
       this.$emit('select', option)
       this.areOptionsVisible = false;
-    },
-    hideSelect() {
-      this.areOptionsVisible = false;
     }
-
-  },
-  mounted() {
-    document.addEventListener('click', this.hideSelect.bind(this), true)
-  },
-  beforeDestroy() {
-    document.removeEventListener('click', this.hideSelect)
   }
 }
 </script>
@@ -65,20 +55,23 @@ export default {
 <style>
 .v-select {
   position: relative;
+  margin: 20px 0;
   width: 200px;
   cursor: pointer;
   text-align: left;
 }
+
 .title {
-  border: solid 1px #aeaeae;
+  border: solid 1px #a7c9b3;
   padding: 8px;
 }
+
 .v-select p {
   margin: 0;
 }
 
 .options {
-  border: solid 1px #aeaeae;
+  border: solid 1px #a7c9b3;
   background: #ffffff;
   position: absolute;
   top: 30px;
