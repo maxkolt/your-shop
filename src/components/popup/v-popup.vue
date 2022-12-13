@@ -1,27 +1,29 @@
 <template>
-  <div class="v-popup">
-    <div class="v-popup-header">
-      <span>Popup name</span>
-      <span>
-      <i
-          class="material-icons"
-          @click="closePopup"
-      >
-        close
-      </i>
-    </span>
-    </div>
-    <div class="v-popup-content">
-      <slot></slot>
-    </div>
-    <div class="v-popup-footer">
-      <button class="close-modal" @click="closePopup">Close</button>
-      <button
-          class="submit-btn"
-          @click="rightBtnAction"
-      >
-        {{ rightBtnTitle }}
-      </button>
+  <div class="popup-wrapper" ref="popup-wrapper">
+    <div class='v-popup'>
+      <div class="v-popup-header">
+        <span>{{ popupTitle }}</span>
+        <span>
+        <i
+            class="material-icons"
+            @click="closePopup"
+        >
+          close
+        </i>
+      </span>
+      </div>
+      <div class="v-popup-content">
+        <slot></slot>
+      </div>
+      <div class="v-popup-footer">
+        <button class="close-modal" @click="closePopup">Закрыть</button>
+        <button
+            class="submit-btn"
+            @click="rightBtnAction"
+        >
+          {{ rightBtnTitle }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -32,7 +34,7 @@ export default {
   props: {
     popupTitle: {
       type: String,
-      default: 'Popup name'
+      default: 'Модель'
     },
     rightBtnTitle: {
       type: String,
@@ -43,18 +45,40 @@ export default {
     return {}
   },
   methods: {
-    closePopup(){
+    rightBtnAction() {
+      this.$emit('rightBtnAction')
+    },
+    closePopup() {
       this.$emit('closePopup')
     }
-  }
+  },
+  mounted() {
+    let vm = this;
+    document.addEventListener('click', function (item) {
+      if (item.target === vm.$refs['popup_wrapper']) {
+        vm.closePopup()
+      }
+    })
+  },
 }
 </script>
 
 <style>
+.popup-wrapper {
+  background: rgba(64,64,64, .4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
 .v-popup {
+  border-radius: 3px;
   padding: 16px;
   position: fixed;
-  top: 50px;
   width: 400px;
   background: #ffffff;
   box-shadow: 0 0 17px 0 #e7e7e7;
@@ -74,14 +98,23 @@ export default {
 }
 
 .submit-btn {
+  border: none;
+  border-radius: 5px;
   padding: 8px;
   color: #ffffff;
-  background: #26ae68;
+  background: #a7c9b3;
+  cursor: pointer;
 }
 
 .close-modal {
+  border: none;
+  border-radius: 5px;
   padding: 8px;
   color: #ffffff;
-  background: red;
+  background: #ed5454;
+  cursor: pointer;
+}
+.material-icons {
+  cursor: pointer;
 }
 </style>

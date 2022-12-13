@@ -3,18 +3,30 @@
 
     <v-popup
         v-if="isInfoPopupVisible"
+        rightBtnTitle="Добавить в карзину"
+        :popupTitle="product_data.name"
         @closePopup="closeInfoPopup"
-    />
+        @rightBtnAction="addToCart"
+    >
+      <img class="catalog-item-image" :src=" require('../../assets/images/' + product_data.image)" alt="img">
+      <div>
+        <p class="catalog-item-name">Модель: {{ product_data.name }}</p>
+        <p class="catalog-item-price">Цена: {{ product_data.price }} р.</p>
+        <p class="catalog-item-price">Категория: {{ product_data.category }}</p>
+      </div>
+    </v-popup>
+
 
     <img class="catalog-item-image" :src=" require('../../assets/images/' + product_data.image)" alt="img">
-    <p class="catalog-item-name">{{ product_data.name }}</p>
-    <p class="catalog-item-price">Price: {{ product_data.price }}</p>
+    <p class="catalog-item-name">Модель: {{ product_data.name }}</p>
+    <p class="catalog-item-price">Цена: {{ product_data.price }} р.</p>
     <button
         class="catalog-item-show-info"
         @click="showPopupInfo"
     >
       Информация
     </button>
+    <br>
     <button
         class="catalog-item-add-cart btn"
         @click="addToCart">
@@ -50,7 +62,7 @@ export default {
     showPopupInfo() {
       this.isInfoPopupVisible = true
     },
-    closeInfoPopup(){
+    closeInfoPopup() {
       this.isInfoPopupVisible = false
     },
     addToCart() {
@@ -81,5 +93,16 @@ export default {
   color: #ffff;
   border: none;
   border-radius: 5px;
+}
+
+.catalog-item-show-info {
+  margin: 0 0 10px 0;
+  padding: 2px;
+  background: #d9e8f0;
+  color: #585757;
+  border: none;
+  border-radius: 2px;
+  font-size: 10px;
+  cursor: pointer;
 }
 </style>

@@ -2,12 +2,12 @@
   <div class="cart-item">
     <img class="v-cart-item-image" :src=" require('../../assets/images/' + cart_item_data.image)" alt="">
     <div class="cart-item-info">
-      <p>{{ cart_item_data.name }}</p>
-      <p>{{ cart_item_data.price }}</p>
-      <p>{{ cart_item_data.article }}</p>
+      <p>Модель: {{ cart_item_data.name }}</p>
+      <p>Цена: {{ cart_item_data.price }} р.</p>
+      <p>Артикул: {{ cart_item_data.article }}</p>
     </div>
     <div class="cart-item-quantity">
-      <p>Qty:</p>
+      <p>Кол-во:</p>
       <span class="quantity-tools">
         <button class="quantity-btn" @click="decrementItem">-</button>
          {{ cart_item_data.quantity }}
