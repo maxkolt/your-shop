@@ -2,7 +2,8 @@
   <div class='v-catalog'>
 
     <v-notification
-    :messages="messages"
+        :messages="messages"
+        :timeout="2000"
     />
 
     <router-link :to="{name: 'cart', params: {cart_data: CART}}">
@@ -121,8 +122,8 @@ export default {
       this.ADD_TO_CART(data)
           .then(() => {
             let timeStamp = Date.now().toLocaleString()
-            this.messages.push(
-                {name: 'Товар добавлен в корзину', id: timeStamp}
+            this.messages.unshift(
+                {name: 'Товар добавлен в корзину', icon: 'check_circle', id: timeStamp}
             )
           })
     }

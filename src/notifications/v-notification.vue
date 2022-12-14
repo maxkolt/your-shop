@@ -2,19 +2,19 @@
   <div class='v-notification'>
     <transition-group
         name="v-transition-animate"
-        class="messages-list"
+        class="messages_list"
     >
       <div
-          class="v-notification-content"
+          class="v-notification__content"
           v-for="message in messages"
           :key="message.id"
           :class="message.icon"
       >
-        <div class="content-text">
+        <div class="content__text">
           <span>{{message.name}}</span>
           <i class="material-icons">{{message.icon}}</i>
         </div>
-        <div class="content-buttons">
+        <div class="content_buttons">
           <button v-if="rightButton.length">{{rightButton}}</button>
           <button v-if="leftButton.length">{{leftButton}}</button>
         </div>
@@ -70,21 +70,17 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .v-notification {
   position: fixed;
   top: 80px;
   right: 16px;
   z-index: 10;
-  display: flex;
-  flex-direction: column-reverse;
-
-}
-.messages-list {
+  &__messages_list {
     display: flex;
     flex-direction: column-reverse;
   }
-.v-notification-content {
+  &__content {
     padding: 16px;
     border-radius: 4px;
     color: #ffffff;
@@ -93,56 +89,57 @@ export default {
     align-items: center;
     height: 50px;
     margin-bottom: 16px;
-    background: green
-}
-/*.error {*/
-/*      background: red;*/
-/*    }*/
-/*    &.warning {*/
-/*      background: orange;*/
-/*    }*/
-/*    &.check_circle {*/
-/*      background: green;*/
-/*    }*/
-/*  }*/
-.content-text {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    background: #63ab63;
+    &.error {
+      background: #ca5858;
+    }
+    &.warning {
+      background: rgba(255, 165, 0, 0.65);
+    }
+    &.check_circle {
+      background: #63ab63;
+    }
+  }
+  .content {
+    &__text {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
   .material-icons {
     margin-left: 16px;
   }
+}
 
+.v-transition-animate {
+  &-enter {
+    transform: translateX(120px);
+    opacity: 0;
+  }
+  &-enter-active {
+    transition: all .6s ease;
+  }
+  &-enter-to {
+    opacity: 1;
+  }
 
-/*.v-transition-animate {*/
-/*  &-enter {*/
-/*    transform: translateX(120px);*/
-/*    opacity: 0;*/
-/*  }*/
-/*  &-enter-active {*/
-/*    transition: all .6s ease;*/
-/*  }*/
-/*  &-enter-to {*/
-/*    opacity: 1;*/
-/*  }*/
+  &-leave {
+    height: 50px;
+    opacity: 1;
+  }
+  &-leave-active {
+    transition: transform .6s ease, opacity .6s, height .6s .2s;
+  }
+  &-leave-to {
+    height: 0;
+    transform: translateX(120px);
+    opacity: 0;
+  }
 
-/*  &-leave {*/
-/*    height: 50px;*/
-/*    opacity: 1;*/
-/*  }*/
-/*  &-leave-active {*/
-/*    transition: transform .6s ease, opacity .6s, height .6s .2s;*/
-/*  }*/
-/*  &-leave-to {*/
-/*    height: 0;*/
-/*    transform: translateX(120px);*/
-/*    opacity: 0;*/
-/*  }*/
+  &-move {
+    transition: transform .6s ease;
+  }
 
-/*  &-move {*/
-/*    transition: transform .6s ease;*/
-/*  }*/
-
-/*}*/
+}
 </style>
