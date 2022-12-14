@@ -1,5 +1,10 @@
 <template>
   <div class='v-catalog'>
+
+    <v-notification
+    :messages="messages"
+    />
+
     <router-link :to="{name: 'cart', params: {cart_data: CART}}">
       <button class="v-catalog-link-to-cart">Корзина: {{ CART.length }}</button>
     </router-link>
@@ -46,16 +51,17 @@
 
 <script>
 
-import catalogItem from "./catalog-item.vue"
-import {mapActions, mapGetters} from "vuex"
-import vSelect from "../v-select"
-
+import catalogItem from './catalog-item.vue'
+import {mapActions, mapGetters} from 'vuex'
+import vSelect from '../v-select'
+import vNotification from '../../notifications/v-notification'
 
 export default {
   name: "v-catalog",
   components: {
     catalogItem,
-    vSelect
+    vSelect,
+    vNotification
   },
   props: {},
   data() {
@@ -68,7 +74,8 @@ export default {
       selected: 'Все ⇓',
       sortedProducts: [],
       minPrice: 0,
-      maxPrice: 10000
+      maxPrice: 10000,
+      messages: []
     }
   },
   computed: {
@@ -112,6 +119,12 @@ export default {
     },
     addToCart(data) {
       this.ADD_TO_CART(data)
+          .then(() => {
+            let timeStamp = Date.now().toLocaleString()
+            this.messages.push(
+                {name: 'Товар добавлен в корзину', id: timeStamp}
+            )
+          })
     }
   },
   mounted() {
