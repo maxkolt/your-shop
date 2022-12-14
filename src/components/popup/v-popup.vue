@@ -55,7 +55,7 @@ export default {
   mounted() {
     let vm = this;
     document.addEventListener('click', function (item) {
-      if (item.target === vm.$refs['popup_wrapper']) {
+      if (item.target === vm.$refs['popup-wrapper']) {
         vm.closePopup()
       }
     })
@@ -65,7 +65,7 @@ export default {
 
 <style>
 .popup-wrapper {
-  background: rgba(64,64,64, .4);
+  background: rgba(64, 64, 64, .4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,6 +75,7 @@ export default {
   top: 0;
   bottom: 0;
 }
+
 .v-popup {
   border-radius: 3px;
   padding: 16px;
@@ -114,6 +115,7 @@ export default {
   background: #ed5454;
   cursor: pointer;
 }
+
 .material-icons {
   cursor: pointer;
 }

@@ -3,7 +3,7 @@
     <img class="v-cart-item-image" :src=" require('../../assets/images/' + cart_item_data.image)" alt="">
     <div class="cart-item-info">
       <p>Модель: {{ cart_item_data.name }}</p>
-      <p>Цена: {{ cart_item_data.price }} р.</p>
+      <p>Цена: {{ cart_item_data.price | toFix}}</p>
       <p>Артикул: {{ cart_item_data.article }}</p>
     </div>
     <div class="cart-item-quantity">
@@ -20,6 +20,8 @@
 
 <script>
 
+import toFix from "../../filters/toFix";
+
 export default {
   name: "cart-item",
   props: {
@@ -32,6 +34,9 @@ export default {
   },
   data() {
     return {}
+  },
+  filters:{
+    toFix
   },
   computed: {},
   methods: {
