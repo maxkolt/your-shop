@@ -80,10 +80,10 @@ export default {
 
 <style>
 .catalog-item {
-  flex-basis: 25%;
+  flex-basis: 28%;
   box-shadow: 0 0 10px 0 #86b5ce;
   padding: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 27px;
 }
 
 .catalog-item-image {

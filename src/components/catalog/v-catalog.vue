@@ -141,14 +141,13 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  grid-gap: 15px;
 }
 
 .v-catalog-link-to-cart {
   position: absolute;
   top: 20px;
   right: 50px;
-  padding: 16px;
+  padding: 15px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -186,5 +185,4 @@ input[type='range']::-webkit-slider-thumb {
   top: 2px;
   margin-top: -5px;
 }
-
 </style>
