@@ -27,8 +27,8 @@
         >
         <input
             type="range"
-            min="0"
             max="10000"
+            min="0"
             step="100"
             v-model.number="maxPrice"
             @change="setRangeSlider"
@@ -163,20 +163,28 @@ export default {
 
 .range-slider {
   width: 120px;
-  margin: auto 16px;
   text-align: center;
   position: relative;
 }
 
-.range-slider svg, .range-slider input[type=range] {
+input[type='range'] {
+  -webkit-appearance: none !important;
+  background: #91bbd1;
+  height: 6px;
   position: absolute;
   left: -60px;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background: #7bad8c;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
   z-index: 2;
   position: relative;
   top: 2px;
   margin-top: -5px;
 }
+
 </style>
