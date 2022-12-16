@@ -145,8 +145,8 @@ export default {
 
 .v-catalog-link-to-cart {
   position: absolute;
-  top: 20px;
-  right: 50px;
+  top: 24px;
+  right: 30px;
   padding: 15px;
   border-radius: 5px;
   border: none;

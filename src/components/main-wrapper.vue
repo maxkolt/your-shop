@@ -1,5 +1,6 @@
 <template>
   <div class="main-wrapper">
+    <v-header/>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -8,9 +9,13 @@
 
 <script>
 
+import vHeader from '../layots/v-header.vue'
+
 export default {
   name: "main-wrapper",
-  components: {},
+  components: {
+    vHeader
+  },
   props: {},
   data() {
     return {}
