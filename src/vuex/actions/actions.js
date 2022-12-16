@@ -10,5 +10,8 @@ export default {
   },
   DELETE_FROM_CART({commit}, index) {
     commit('REMOVE_FROM_CART', index)
+  },
+  GET_SEARCH_VALUE_TO_VUEX({commit}, value) {
+    commit('SET_PRODUCTS_TO_STATE', value)
   }
 }

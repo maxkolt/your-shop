@@ -82,7 +82,8 @@ export default {
   computed: {
     ...mapGetters([
       'PRODUCTS',
-      'CART'
+      'CART',
+      'SEARCH_VALUE'
     ]),
     filteredProducts() {
       if (this.sortedProducts.length) {
@@ -126,11 +127,31 @@ export default {
                 {name: 'Товар добавлен в корзину', icon: 'check_circle', id: timeStamp}
             )
           })
+    },
+    sortProductsBySearchValue(value) {
+      this.sortedProducts = [...this.PRODUCTS]
+      if (value) {
+        this.sortedProducts = this.sortedProducts.filter(function (item) {
+          return item.name.toLowerCase().includes(value.toLowerCase())
+        })
+      } else {
+        this.sortedProducts = this.PRODUCTS;
+      }
+    }
+  },
+  watch: {
+    SEARCH_VALUE() {
+      this.sortProductsBySearchValue(this.SEARCH_VALUE);
     }
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API()
-    this.sortByCategories()
+        .then((response) => {
+          if (response.data) {
+            this.sortByCategories()
+            this.sortProductsBySearchValue(this.SEARCH_VALUE)
+          }
+        })
   }
 }
 </script>

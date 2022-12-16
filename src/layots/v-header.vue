@@ -1,17 +1,17 @@
 <template>
   <div class='v-header'>
     <router-link :to="{name: 'mainPage'}">
-        <img src="../assets/images/unnamed.jpeg">
+      <img src="../assets/images/unnamed.jpeg">
     </router-link>
     <div class="search-field">
       <input
           type="text"
           v-model="searchValue"
       >
-      <button class="search_btn">
+      <button class="search-btn">
         <i class="material-icons" @click="search(searchValue)">search</i>
       </button>
-      <button class="search_btn">
+      <button class="search-btn">
         <i class="material-icons" @click="clearSearchField">cancel</i>
       </button>
     </div>
@@ -73,7 +73,7 @@ export default {
   }
 
   .search-field {
-    padding: 16px;
+    padding: 15px;
     position: relative;
     right: 200px;
     display: flex;
@@ -81,7 +81,7 @@ export default {
     align-items: center;
   }
 
-  .search_btn {
+  .search-btn {
     margin-left: 16px;
     background: transparent;
     border: none;
