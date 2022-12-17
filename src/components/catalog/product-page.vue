@@ -2,21 +2,21 @@
   <div class='product-page'>
     <img v-if="product.image" class="v-catalog-item__image" :src=" require('../../assets/images/' + product.image)"
          alt="img">
-    <p>Product name: {{ product.name }}</p>
-    <p>Article: {{ product.article }}</p>
-    <p>Price: {{ product.price | toFix}}</p>
+    <p>Модель: {{ product.name }}</p>
+    <p>Артикул: {{ product.article }}</p>
+    <p>Цена: {{ product.price | toFix | formattedPrice }}</p>
     <button
         class="v-catalog-item__add_to_cart_btn btn"
         @click="addToCart"
-    >Add to cart
+    >Добавить в корзину
     </button>
   </div>
 </template>
 
 <script>
 import {mapGetters, mapActions} from 'vuex'
-import toFix from "../../filters/toFix";
-import formattedPrice from "../../filters/price-format";
+import toFix from '../../filters/toFix'
+import formattedPrice from '../../filters/price-format'
 
 export default {
   name: "product-page",
@@ -50,7 +50,7 @@ export default {
     ]),
     addToCart() {
       this.ADD_TO_CART(this.product)
-    },
+    }
   },
   mounted() {
     if (!this.PRODUCTS.length) {
@@ -60,6 +60,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
