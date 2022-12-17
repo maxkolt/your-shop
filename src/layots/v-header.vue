@@ -69,6 +69,7 @@ export default {
   box-shadow: 0 0 10px 0 #4e9ac4;
 
   img {
+    margin-left: 15px;
     width: 50px;
   }
 

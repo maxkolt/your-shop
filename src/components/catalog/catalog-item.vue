@@ -1,5 +1,5 @@
 <template>
-  <div class="catalog-item">
+  <div class="catalog-item" @click="productClick">
 
     <v-popup
         v-if="isInfoPopupVisible"
@@ -62,6 +62,9 @@ export default {
   },
   computed: {},
   methods: {
+    productClick() {
+      this.$emit('productClick', this.product_data.article)
+    },
     showPopupInfo() {
       this.isInfoPopupVisible = true
     },

@@ -45,6 +45,7 @@
           :key="product.article"
           :product_data="product"
           @addToCart="addToCart"
+          @productClick="productClick"
       />
     </div>
   </div>
@@ -98,6 +99,9 @@ export default {
       'GET_PRODUCTS_FROM_API',
       'ADD_TO_CART'
     ]),
+    productClick(article) {
+      this.$router.push({name: 'product', query: {'product': article}})
+    },
     setRangeSlider() {
       if (this.minPrice > this.maxPrice) {
         let tmp = this.maxPrice
@@ -166,7 +170,7 @@ export default {
 
 .v-catalog-link-to-cart {
   position: absolute;
-  top: 24px;
+  top: 22px;
   right: 30px;
   padding: 15px;
   border-radius: 5px;

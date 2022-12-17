@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import vCatalog from '../components/catalog/v-catalog.vue'
 import vCart from '../components/cart/v-cart.vue'
 import mainPage from '../main-page/main-page.vue'
+import productPage from "../components/catalog/product-page.vue";
 
 Vue.use(Router)
 
@@ -18,11 +19,11 @@ let router = new Router({
       name: 'catalog',
       component: vCatalog
     },
-    // {
-    //   path: '/product',
-    //   name: 'product',
-    //   component: vProductPage
-    //  },
+    {
+      path: '/product',
+      name: 'product',
+      component: productPage
+    },
     {
       path: '/cart',
       name: 'cart',
