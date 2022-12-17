@@ -11,12 +11,12 @@
           :class="message.icon"
       >
         <div class="content__text">
-          <span>{{message.name}}</span>
-          <i class="material-icons">{{message.icon}}</i>
+          <span>{{ message.name }}</span>
+          <i class="material-icons">{{ message.icon }}</i>
         </div>
         <div class="content_buttons">
-          <button v-if="rightButton.length">{{rightButton}}</button>
-          <button v-if="leftButton.length">{{leftButton}}</button>
+          <button v-if="rightButton.length">{{ rightButton }}</button>
+          <button v-if="leftButton.length">{{ leftButton }}</button>
         </div>
       </div>
     </transition-group>
@@ -76,10 +76,12 @@ export default {
   top: 100px;
   right: 16px;
   z-index: 10;
+
   &__messages_list {
     display: flex;
     flex-direction: column-reverse;
   }
+
   &__content {
     padding: 16px;
     border-radius: 4px;
@@ -90,16 +92,20 @@ export default {
     height: 50px;
     margin-bottom: 16px;
     background: #63ab63;
+
     &.error {
       background: #ca5858;
     }
+
     &.warning {
       background: rgba(255, 165, 0, 0.65);
     }
+
     &.check_circle {
       background: #63ab63;
     }
   }
+
   .content {
     &__text {
       display: flex;
@@ -107,6 +113,7 @@ export default {
       justify-content: space-between;
     }
   }
+
   .material-icons {
     margin-left: 16px;
   }
@@ -117,9 +124,11 @@ export default {
     transform: translateX(120px);
     opacity: 0;
   }
+
   &-enter-active {
     transition: all .6s ease;
   }
+
   &-enter-to {
     opacity: 1;
   }
@@ -128,9 +137,11 @@ export default {
     height: 50px;
     opacity: 1;
   }
+
   &-leave-active {
     transition: transform .6s ease, opacity .6s, height .6s .2s;
   }
+
   &-leave-to {
     height: 0;
     transform: translateX(120px);

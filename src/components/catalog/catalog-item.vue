@@ -1,5 +1,5 @@
 <template>
-  <div class="catalog-item" @click="productClick">
+  <div class="catalog-item">
 
     <v-popup
         v-if="isInfoPopupVisible"
@@ -16,7 +16,10 @@
       </div>
     </v-popup>
 
-    <img class="catalog-item-image" :src=" require('../../assets/images/' + product_data.image)" alt="img">
+    <img class="catalog-item-image"
+         :src=" require('../../assets/images/' + product_data.image)"
+         alt="img"
+         @click="productClick">
     <p class="catalog-item-name">Модель: {{ product_data.name }}</p>
     <p class="catalog-item-price">Цена: {{ product_data.price | toFix }}</p>
     <button
